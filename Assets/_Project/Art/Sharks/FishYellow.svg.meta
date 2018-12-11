@@ -14,16 +14,16 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: a57477913897c46af95d590f580878bd, type: 3}
   svgType: 0
   texturedSpriteMeshType: 0
-  svgPixelsPerUnit: 100
-  gradientResolution: 128
+  svgPixelsPerUnit: 96
+  gradientResolution: 256
   alignment: 0
   customPivot: {x: 0, y: 0}
-  generatePhysicsShape: 0
+  generatePhysicsShape: 1
   preserveViewport: 0
   advancedMode: 0
   predefinedResolutionIndex: 1
   targetResolution: 1080
-  resolutionMultiplier: 1
+  resolutionMultiplier: 1.5
   stepDistance: 10
   samplingStepDistance: 100
   maxCordDeviationEnabled: 0
@@ -40,16 +40,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: FishYellowSprite
       originalName: 
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5000825, y: 0.49992386}
       alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
-      spriteID: 1f74305a34a02b340a9f635d98085b48
+        width: 86
+        height: 100
+      spriteID: 09d353e07a0a11e4cb4e96a568f36454
     PhysicsOutlines: []

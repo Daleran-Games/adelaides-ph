@@ -14,7 +14,7 @@ ScriptedImporter:
   script: {fileID: 11500000, guid: a57477913897c46af95d590f580878bd, type: 3}
   svgType: 0
   texturedSpriteMeshType: 0
-  svgPixelsPerUnit: 100
+  svgPixelsPerUnit: 48
   gradientResolution: 128
   alignment: 0
   customPivot: {x: 0, y: 0}
@@ -40,16 +40,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: PinkFongSprite
       originalName: 
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.50287825, y: 0.4999757}
       alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
-      spriteID: 263317b8d8438d7439786ef27ea8d7e2
+        width: 78
+        height: 100
+      spriteID: 8fff0b990c098124dba5fc9052f8700e
     PhysicsOutlines: []

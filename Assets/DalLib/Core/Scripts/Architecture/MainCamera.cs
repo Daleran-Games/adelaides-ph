@@ -9,12 +9,13 @@ namespace DaleranGames
     {
         [SerializeField]
         static Camera instance;
-        public static Camera Instance { get { return instance; } }
-
-        // Use this for initialization
-        void Awake()
-        {
-            instance = Camera.main;
+        public static Camera Instance
+        { get
+            {
+                if (instance == null)
+                    instance = Camera.main;
+                return instance;
+            }
         }
 
     }
