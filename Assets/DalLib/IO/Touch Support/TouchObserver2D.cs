@@ -5,52 +5,42 @@ using System;
 
 namespace DaleranGames.TouchSupport
 {
-    public class TouchMediator2D : MonoBehaviour
+    public class TouchObserver2D : BaseTouchObserver
     {
         [SerializeField] float castRadius = 0.1f;
-        [SerializeField] LayerMask mask;
-        [SerializeField] int maxHits = 30;
 
         Collider2D[] hits;
-
-        public event Action<Touch> OnTouchBegin;
 
         private void Awake()
         {
             hits = new Collider2D[maxHits];
         }
 
-        // Update is called once per frame
-        void Update()
+        protected override void CastAtTouch(Touch touch)
         {
-            for (int i = 0; i < Input.touches.Length; i++)
+            int results = Physics2D.OverlapCircleNonAlloc(MainCamera.Instance.ScreenToWorldPoint(touch.position), castRadius, hits, mask.value);
+
+            if (results > 0)
             {
-                if (Input.touches[i].phase == TouchPhase.Began)
+                for (int i = 0; i < results; i++)
                 {
-                    int results = Physics2D.OverlapCircleNonAlloc(MainCamera.Instance.ScreenToWorldPoint(Input.touches[i].position), castRadius, hits, mask.value);
-
-                    if (results > 0)
-                    {
-
-                        for (int k = 0; k < results; k++)
-                        {
-                            ITouchable[] touchables = hits[k].gameObject.GetComponents<ITouchable>();
-
-                            if (touchables.Length > 0)
-                            {
-                                for (int j = 0; j < touchables.Length; j++)
-                                {
-                                    touchables[j].Touch(Input.touches[i]);
-                                }
-                            }
-                        }
-                    }
-                }          
+                    InvokeTouchables(i, touch);
+                }
             }
         }
 
+        void InvokeTouchables(int hitIndex, Touch touch)
+        {
+            ITouchable[] touchables = hits[hitIndex].gameObject.GetComponents<ITouchable>();
 
-
+            if (touchables.Length > 0)
+            {
+                for (int i = 0; i < touchables.Length; i++)
+                {
+                    touchables[i].Touch(touch);
+                }
+            }
+        }
 
     }
 }

@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TouchInstantiator : MonoBehaviour
+namespace DaleranGames.TouchSupport
 {
-    // Start is called before the first frame update
-    void Start()
+    public class TouchInstantiator : MonoBehaviour
     {
-        
-    }
+        [SerializeField] GameObject prefab;
+        [SerializeField] BaseTouchObserver observer;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void OnEnable()
+        {
+            observer.OnTouchBegin += OnTouch;
+        }
+
+        private void OnDisable()
+        {
+            observer.OnTouchBegin -= OnTouch;
+        }
+
+        void OnTouch(Touch touch)
+        {
+            Instantiate(prefab, touch.position, Quaternion.identity);
+        }
     }
 }
